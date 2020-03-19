@@ -6,6 +6,7 @@ import { MaterialModule } from './core/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from './products/products.module';
+import { CartModule } from './cart/cart.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { AppComponent } from './app.component';
     MaterialModule,
     AppRoutingModule,
     ProductsModule,
+    CartModule,
     SharedModule
   ],
   providers: [],

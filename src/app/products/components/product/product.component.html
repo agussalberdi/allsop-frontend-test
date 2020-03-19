@@ -1,3 +1,18 @@
-<div>
-    {{ product.name }}
-</div>
+<mat-card class="product">
+    <mat-card-header>
+      <mat-card-title class="title">{{ product.name }}</mat-card-title>
+      <mat-card-subtitle>{{ product.price | currency: 'GBP' }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="getCategoryImage()" alt="Product image">
+    <mat-card-content>
+      <p>
+        Category: {{ product.category }}
+      </p>
+      <p>
+          Quantity: {{ product.quantity }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="addCart()" [disabled]="product.quantity === 0">Add to Cart</button>
+    </mat-card-actions>
+</mat-card>

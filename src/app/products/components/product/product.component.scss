@@ -1,0 +1,15 @@
+.product {
+    margin: 15px;
+    width: 250px;
+
+    .title {
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    img {
+        height: 150px;
+    }
+}

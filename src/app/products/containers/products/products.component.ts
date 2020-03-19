@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/core/services/products.service';
 import { Product } from './../../../core/interfaces/product.interface';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-products',
@@ -8,7 +9,7 @@ import { Product } from './../../../core/interfaces/product.interface';
     styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-    products: Product[] = [];
+    products$: Observable<Product[]>;
 
     constructor(private productsService: ProductsService) {}
 
@@ -17,6 +18,6 @@ export class ProductsComponent implements OnInit {
     }
 
     fetchProducts() {
-        this.products = this.productsService.getProducts();
+        this.products$ = this.productsService.getProducts();
     }
 }
