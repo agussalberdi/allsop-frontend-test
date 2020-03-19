@@ -15,4 +15,13 @@ export class CartService {
         this.products = [...this.products, product];
         this.cart.next(this.products);
     }
+
+    getTotal() {
+        return this.products.reduce((total, product: Product) => {
+        //   if (product && product.voucher) {
+        //     return total + product.offert;
+        //   }
+          return total + product.price;
+        }, 0);
+    }
 }
