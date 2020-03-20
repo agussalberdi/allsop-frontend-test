@@ -8,7 +8,7 @@ import { Product } from 'src/app/core/interfaces/product.interface';
     styleUrls: ['./cart-table.component.scss']
 })
 export class CartTableComponent implements OnInit {
-    displayedColumns: string[] = ['item', 'cost'];
+    displayedColumns: string[] = ['item', 'cost', 'remove'];
 
     @Input() cart: Product[];
 
@@ -18,6 +18,10 @@ export class CartTableComponent implements OnInit {
 
     getCartTotal() {
         return this.cartService.getTotal();
+    }
+
+    removeProduct(product: Product) {
+        this.cartService.removeCart(product);
     }
 
 }

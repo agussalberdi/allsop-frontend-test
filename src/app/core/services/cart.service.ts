@@ -17,7 +17,9 @@ export class CartService {
     }
 
     removeCart(product: Product) {
-        this.products.filter(elem => elem.id !== product.id);
+        console.log('previous: ', this.products);
+        this.products.filter(elem => elem.name.toLowerCase() !== product.name.toLowerCase());
+        console.log('after: ', this.products);
         this.cart.next(this.products);
     }
 

@@ -43,12 +43,12 @@ export class ProductComponent implements OnInit {
     addCart() {
         this.requestedQuantity += 1;
         this.cartService.addCart(this.product);
-        this.productsService.reduceQuantity(this.product.id);
+        this.productsService.reduceQuantity(this.product.name);
     }
 
     removeCart() {
         this.requestedQuantity -= 1;
         this.cartService.removeCart(this.product);
-        this.productsService.increaseQuantity(this.product.id);
+        this.productsService.increaseQuantity(this.product.name);
     }
 }
