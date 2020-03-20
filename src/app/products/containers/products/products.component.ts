@@ -20,4 +20,8 @@ export class ProductsComponent implements OnInit {
     fetchProducts() {
         this.products$ = this.productsService.getProducts();
     }
+
+    handleFilter(event: Event) {
+        console.log(event);
+    }
 }

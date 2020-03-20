@@ -1,5 +1,5 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-    <app-search></app-search>
+<div fxLayout="column">
+    <app-search (filteredProducts)="handleFilter($event)"></app-search>
     <div class="products-grid" fxLayout="row wrap" fxLayoutAlign="space-around center">
         <app-product *ngFor="let product of (products$ | async)" [product]="product"></app-product>
     </div>

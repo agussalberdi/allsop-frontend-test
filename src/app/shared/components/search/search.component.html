@@ -1,1 +1,8 @@
-<input matInput type="text" placeholder="Search for a product">
+<form [formGroup]="filterForm" fxLayoutAlign="space-around center">
+    <mat-form-field fxFlex="40" floatLabel="never">
+        <input matInput placeholder="Filter by name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field fxFlex="40" floatLabel="never">
+        <input matInput placeholder="Filter by category" formControlName="category" />
+    </mat-form-field>
+</form>

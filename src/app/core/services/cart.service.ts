@@ -18,16 +18,16 @@ export class CartService {
 
     removeCart(product: Product) {
         console.log('previous: ', this.products);
-        this.products.filter(elem => elem.name.toLowerCase() !== product.name.toLowerCase());
+        this.products = this.products.filter(elem => elem.name.toLowerCase() !== product.name.toLowerCase());
         console.log('after: ', this.products);
         this.cart.next(this.products);
     }
 
     getTotal() {
         return this.products.reduce((total, product: Product) => {
-        //   if (product && product.voucher) {
-        //     return total + product.offert;
-        //   }
+            if (product && product.reduced) {
+                return total + product.reduced;
+            }
             return total + product.price;
         }, 0);
     }
