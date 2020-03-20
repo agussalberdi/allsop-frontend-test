@@ -5,3 +5,17 @@ table {
 tr.mat-footer-row {
     font-weight: bold;
 }
+
+.empty-box {
+    margin: 20px;
+    text-align: center;
+
+    p {
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    img {
+        width: 50vw;
+    }
+}

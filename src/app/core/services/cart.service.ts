@@ -16,12 +16,17 @@ export class CartService {
         this.cart.next(this.products);
     }
 
+    removeCart(product: Product) {
+        this.products.filter(elem => elem.id !== product.id);
+        this.cart.next(this.products);
+    }
+
     getTotal() {
         return this.products.reduce((total, product: Product) => {
         //   if (product && product.voucher) {
         //     return total + product.offert;
         //   }
-          return total + product.price;
+            return total + product.price;
         }, 0);
     }
 }

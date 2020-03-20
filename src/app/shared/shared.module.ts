@@ -5,11 +5,13 @@ import { MaterialModule } from './../core/material.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
     declarations: [
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        SearchComponent
     ],
     imports: [
         CommonModule,
@@ -18,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ],
     exports: [
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        SearchComponent
     ],
     providers: [],
 })

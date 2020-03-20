@@ -42,11 +42,19 @@ export class ProductsService {
     return of(search);
   }
 
-  // updateQuantity(id: string) {
-  //   this.products.find(product => {
-  //     if (product.id === id) {
-  //       product.quantity = product.quantity
-  //     }
-  //   });
-  // }
+  increaseQuantity(id: string) {
+    this.products.find(product => {
+      if (product.id === id) {
+        product.quantity += 1;
+      }
+    });
+  }
+
+  reduceQuantity(id: string) {
+    this.products.find(product => {
+      if (product.id === id) {
+        product.quantity -= 1;
+      }
+    });
+  }
 }

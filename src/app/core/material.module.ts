@@ -34,6 +34,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -105,6 +106,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatStepperModule,
     MatBadgeModule,
     MatGridListModule
-  ]
+  ],
+  declarations: [FilterPipe]
 })
 export class MaterialModule {}
