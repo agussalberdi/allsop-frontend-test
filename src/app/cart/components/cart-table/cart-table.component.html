@@ -41,5 +41,5 @@
 
 <div *ngIf="cart.length > 0" fxLayoutAlign="space-around center">
   <button mat-raised-button color="primary" (click)="clearCart()">Empty Cart</button>
-  <app-voucher (voucherEmitted)="handleVoucher($event)"></app-voucher>
+  <app-voucher (voucherEmitted)="applyVoucher($event)"></app-voucher>
 </div>

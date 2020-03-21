@@ -8,8 +8,10 @@ import { Product } from './../interfaces/product.interface';
 export class CartService {
     private products: Product[] = [];
     private cart = new BehaviorSubject<Product[]>([]);
+    // private total = new BehaviorSubject<number>(null);
 
     cart$ = this.cart.asObservable();
+    // total$ = this.total.asObservable();
 
     addCart(product: Product) {
         this.products = [...this.products, product];

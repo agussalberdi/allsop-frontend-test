@@ -24,7 +24,7 @@ export class CartTableComponent implements OnInit {
 
     removeProduct(product: Product) {
         this.cartService.removeCart(product);
-        // this.getCartTotal();
+        this.getCartTotal();
     }
 
     clearCart() {
@@ -32,7 +32,7 @@ export class CartTableComponent implements OnInit {
         this.cartService.clearCart();
     }
 
-    handleVoucher(voucher: Event) {
+    applyVoucher(voucher: Event) {
         if (voucher) {
             this.total -= 20;
         }
