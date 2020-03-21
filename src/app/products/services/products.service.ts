@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Product } from './../interfaces/product.interface';
-import { Category } from './../enums/category.enum';
+import { Product } from '../../shared/interfaces/product.interface';
+import { Category } from '../../shared/enums/category.enum';
 import { of } from 'rxjs';
 
 @Injectable({

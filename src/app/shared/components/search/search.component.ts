@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { Product } from 'src/app/core/interfaces/product.interface';
+import { Product } from 'src/app/shared/interfaces/product.interface';
 import { Subscription } from 'rxjs';
 
 @Component({

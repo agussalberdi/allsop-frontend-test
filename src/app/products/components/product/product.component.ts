@@ -1,8 +1,8 @@
-import { ProductsService } from 'src/app/core/services/products.service';
+import { ProductsService } from 'src/app/products/services/products.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { CartService } from './../../../core/services/cart.service';
-import { Product } from './../../../core/interfaces/product.interface';
-import { Category } from 'src/app/core/enums/category.enum';
+import { CartService } from '../../../cart/services/cart.service';
+import { Product } from '../../../shared/interfaces/product.interface';
+import { Category } from 'src/app/shared/enums/category.enum';
 
 @Component({
     selector: 'app-product',

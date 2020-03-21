@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { CartService } from './../../../core/services/cart.service';
+import { CartService } from '../../../cart/services/cart.service';
 
 @Component({
     selector: 'app-voucher',

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CartService } from './../../../core/services/cart.service';
-import { Product } from 'src/app/core/interfaces/product.interface';
+import { CartService } from '../../services/cart.service';
+import { Product } from 'src/app/shared/interfaces/product.interface';
 
 @Component({
     selector: 'app-cart-table',
