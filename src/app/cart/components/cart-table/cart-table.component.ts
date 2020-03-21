@@ -30,6 +30,7 @@ export class CartTableComponent implements OnInit {
     handleVoucher(voucher: Event) {
         if (voucher) {
             this.total -= 20;
+            //this.message = "Discount code applied'
         }
     }
 }

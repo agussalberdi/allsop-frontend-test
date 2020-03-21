@@ -1,0 +1,19 @@
+.voucher {
+    margin-top: 15px;
+
+    button {
+        margin-left: 10px;
+    }
+
+    p {
+        font-weight: 500;
+        
+        &.error {
+            color: red;
+        }
+    
+        &.success {
+            color: rgb(23, 246, 53);
+        }
+    }
+}

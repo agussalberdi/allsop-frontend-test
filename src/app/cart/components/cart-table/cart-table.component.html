@@ -32,7 +32,7 @@
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 </table>
 
-<app-voucher (voucherEmitted)="handleVoucher($event)"></app-voucher>
+<app-voucher *ngIf="cart.length > 0" (voucherEmitted)="handleVoucher($event)"></app-voucher>
 
 <ng-template #emptyCart>
     <div class="empty-box">
