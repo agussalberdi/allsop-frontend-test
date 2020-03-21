@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
     products$: Observable<Product[]>;
+    stringFilter;
 
     constructor(private productsService: ProductsService) {}
 
@@ -23,5 +24,6 @@ export class ProductsComponent implements OnInit {
 
     handleFilter(event: Event) {
         console.log(event);
+        this.stringFilter = event;
     }
 }

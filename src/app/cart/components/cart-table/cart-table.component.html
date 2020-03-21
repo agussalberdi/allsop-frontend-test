@@ -14,7 +14,7 @@
         </div>
         <div *ngIf="!product.reduced">{{ product.price | currency: 'GBP' }}</div>
       </td>
-      <td mat-footer-cell *matFooterCellDef> {{ getCartTotal() | currency: 'GBP' }} </td>
+      <td mat-footer-cell *matFooterCellDef> {{ total | currency: 'GBP' }} </td>
     </ng-container>
 
     <ng-container matColumnDef="remove">
@@ -31,6 +31,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 </table>
+
+<app-voucher (voucherEmitted)="handleVoucher($event)"></app-voucher>
 
 <ng-template #emptyCart>
     <div class="empty-box">

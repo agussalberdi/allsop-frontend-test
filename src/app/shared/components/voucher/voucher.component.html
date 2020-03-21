@@ -1,0 +1,12 @@
+<div class="voucher" fxLayout="column" fxLayoutAlign="center center">
+    <form [formGroup]="voucherForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Insert discount Voucher</mat-label>
+            <input matInput placeholder="Insert discount voucher" formControlName="code">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <button mat-stroked-button color="primary">Apply</button>
+    </form>
+    <p *ngIf="discountError">Your code is invalid. Try again.</p>
+    <p *ngIf="totalAmountError">You must spend 100 or more.</p>
+</div>

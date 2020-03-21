@@ -7,12 +7,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
+import { VoucherComponent } from './components/voucher/voucher.component';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         FooterComponent,
-        SearchComponent
+        SearchComponent,
+        VoucherComponent
     ],
     imports: [
         CommonModule,
@@ -23,7 +25,8 @@ import { SearchComponent } from './components/search/search.component';
     exports: [
         HeaderComponent,
         FooterComponent,
-        SearchComponent
+        SearchComponent,
+        VoucherComponent
     ],
     providers: [],
 })

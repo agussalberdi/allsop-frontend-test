@@ -8,7 +8,7 @@
       <span [ngClass]="{'crossed-out': product.reduced}">{{ product.price | currency: 'GBP' }}</span>
       <span *ngIf="product.reduced" class="reduced">{{ product.reduced | currency: 'GBP' }}</span>
       <p>
-          Quantity: {{ product.quantity }}
+          Stock: {{ product.quantity }}
       </p>
     </mat-card-content>
     <mat-card-actions>

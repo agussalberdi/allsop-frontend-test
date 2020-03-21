@@ -7,11 +7,13 @@ import { SharedModule } from './../shared/shared.module';
 import { ProductsComponent } from './containers/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 
+import { FilterPipe } from './../core/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
