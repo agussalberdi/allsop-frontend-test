@@ -21,6 +21,11 @@ export class CartService {
         this.cart.next(this.products);
     }
 
+    clearCart() {
+        this.products = [];
+        this.cart.next(this.products);
+    }
+
     getTotal() {
         return this.products.reduce((total, product: Product) => {
             if (product && product.reduced) {

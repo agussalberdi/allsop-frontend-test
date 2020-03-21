@@ -24,13 +24,17 @@ export class CartTableComponent implements OnInit {
 
     removeProduct(product: Product) {
         this.cartService.removeCart(product);
-        this.getCartTotal();
+        // this.getCartTotal();
+    }
+
+    clearCart() {
+        this.cart = [];
+        this.cartService.clearCart();
     }
 
     handleVoucher(voucher: Event) {
         if (voucher) {
             this.total -= 20;
-            //this.message = "Discount code applied'
         }
     }
 }
