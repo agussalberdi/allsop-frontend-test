@@ -1,6 +1,4 @@
 <div *ngIf="cart.length > 0; else emptyCart" fxLayout="column" fxLayoutAlign="center center" class="container">
-  <button mat-raised-button color="primary" (click)="clearCart()" id="clear">Empty Cart</button>
-
   <table mat-table [dataSource]="cart" class="mat-elevation-z8">
       <ng-container matColumnDef="item">
         <th mat-header-cell *matHeaderCellDef> Product </th>
@@ -27,7 +25,9 @@
             <mat-icon>delete</mat-icon>
           </button>
         </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+        <td mat-footer-cell *matFooterCellDef>
+          <button mat-raised-button color="primary" (click)="clearCart()" id="clear">Empty Cart</button>
+        </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -36,9 +36,9 @@
   </table>
 
   <mat-chip-list aria-label="Discounts applied" class="discounts" fxLayoutAlign="space-around center">
-    <mat-chip *ngIf="discountVoucher" color="accent">{{ discountVoucherMessage }}</mat-chip>
-    <mat-chip *ngIf="discountDrinks" color="accent">{{ discountDrinksMessage }}</mat-chip>
-    <mat-chip *ngIf="discountIngredients" color="accent">{{ discountIngredientsMessage }}</mat-chip>
+    <mat-chip *ngIf="discountVoucher">{{ discountVoucherMessage }}</mat-chip>
+    <mat-chip *ngIf="discountDrinks">{{ discountDrinksMessage }}</mat-chip>
+    <mat-chip *ngIf="discountIngredients">{{ discountIngredientsMessage }}</mat-chip>
   </mat-chip-list>
 
   <app-voucher *ngIf="!discountVoucher" (voucherEmitted)="applyVoucher($event)"></app-voucher>

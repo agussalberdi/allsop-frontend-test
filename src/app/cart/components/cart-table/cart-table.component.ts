@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CartService } from '../../services/cart.service';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 import { Category } from 'src/app/shared/enums/category.enum';
+import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'app-cart-table',

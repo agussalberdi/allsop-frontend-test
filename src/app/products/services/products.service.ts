@@ -37,11 +37,6 @@ export class ProductsService {
     return of(this.products);
   }
 
-  getProductByName(name: string) {
-    const search = this.products.find(product => product.name.toLowerCase() === name.toLowerCase());
-    return of(search);
-  }
-
   increaseQuantity(name: string) {
     this.products.find(product => {
       if (product.name.toLowerCase() === name.toLowerCase()) {
