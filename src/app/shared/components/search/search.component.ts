@@ -1,44 +1,29 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/shared/interfaces/product.interface';
-import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit, OnDestroy {
-    filterForm: FormGroup;
-    filterSubscription: Subscription;
-    @Output() filteredProducts: EventEmitter<Product[]> = new EventEmitter();
+export class SearchComponent implements OnInit {
+    @Input() data: Product[];
+    @Output() filteredData: EventEmitter<Product[]> = new EventEmitter();
+    search: string = null;
 
-    constructor(private fb: FormBuilder) {}
+    constructor() {}
 
-    ngOnInit() {
-        this.initForm();
-        this.onFilterChanges();
-    }
+    ngOnInit() {}
 
-    initForm() {
-        this.filterForm = this.fb.group({
-            name: [''],
-            category: ['']
-        });
-    }
-
-    onFilterChanges() {
-        this.filterSubscription = this.filterForm.valueChanges.pipe(
-            debounceTime(350),
-            distinctUntilChanged()
-        )
-        .subscribe((value) => {
-            this.filteredProducts.emit(value);
-        });
-    }
-
-    ngOnDestroy() {
-        this.filterSubscription.unsubscribe();
+    onChange(event: string) {
+        if (event.length > 2) {
+            const filtered = this.data.filter(item =>
+                item.name.toLowerCase().includes(event.toLowerCase()) ||
+                item.category.toLowerCase().includes(event.toLowerCase())
+            );
+            this.filteredData.emit(filtered);
+        } else {
+            this.filteredData.emit(this.data);
+        }
     }
 }
