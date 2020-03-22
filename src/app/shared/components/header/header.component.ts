@@ -10,14 +10,20 @@ import { AuthService } from './../../../auth/services/auth.service';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    loggedIn: boolean;
     total$: Observable<number>;
 
     constructor(private cartService: CartService, private authService: AuthService) {}
 
     ngOnInit() {
+        this.isLoggedIn();
         this.total$ = this.cartService.cart$.pipe(
             map(products => products.length)
         );
+    }
+
+    isLoggedIn() {
+        this.loggedIn = this.authService.isLoggedIn;
     }
 
     logoutUser() {

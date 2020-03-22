@@ -47,18 +47,13 @@ export class CartTableComponent implements OnInit {
         const drinks = this.cart.filter(product => product.category === Category.Drinks);
 
         if (drinks.length >= 10) {
-            this.cart.reduce((total, product: Product) => {
-                if (product && product.category === Category.Drinks) {
-                    if (product.reduced) {
-                        // product.reduced = product.reduced * 0.9;
-                        return total + (product.reduced * 0.1);
-                    } else {
-                        // product.price = product.price * 0.9;
-                    }
-                    this.discountDrinks = true;
-                    this.discountDrinksMessage = 'Drinks 10% off';
-                    return total + (product.price * 0.1);
+            return drinks.reduce((total, product: Product) => {
+                this.discountDrinks = true;
+                this.discountDrinksMessage = 'Drinks 10% off';
+                if (product.reduced) {
+                    return total + (product.reduced * 0.1);
                 }
+                return total + (product.price * 0.1);
             }, 0);
         }
         return 0;
