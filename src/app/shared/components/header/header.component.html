@@ -5,9 +5,12 @@
         <a routerLink="/products" routerLinkActive="active">Products</a>
       </nav>
       <div>
-        <a routerLink="/cart" mat-raised-button color="basic" [matBadge]="total$ | async" matBadgePosition="after" matBadgeColor="accent">
-          <mat-icon>shopping_cart</mat-icon>
+        <a routerLink="/cart" mat-icon-button color="basic" [matBadge]="total$ | async" matBadgePosition="after" matBadgeColor="warn">
+          <mat-icon color="basic">shopping_cart</mat-icon>
         </a>
+        <button mat-icon-button (click)="logoutUser()">
+          <mat-icon>power_settings_new</mat-icon>
+        </button>
       </div>
     </mat-toolbar-row>
 </mat-toolbar>
