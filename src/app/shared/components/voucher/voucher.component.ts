@@ -14,7 +14,6 @@ export class VoucherComponent implements OnInit {
 
     total: number;
 
-    codeAlreadyUsed = false;
     discountError = false;
     totalAmountError = false;
 
@@ -41,7 +40,6 @@ export class VoucherComponent implements OnInit {
             this.voucherForm.reset();
             this.discountError = false;
             this.totalAmountError = false;
-            this.codeAlreadyUsed = true;
             return;
         }
 

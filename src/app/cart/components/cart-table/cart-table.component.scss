@@ -1,13 +1,29 @@
-table {
-    width: 100%;
-}
+.container {
+    margin: 20px;
 
-tr.mat-footer-row {
-    font-weight: bold;
-}
+    #clear {
+        margin-bottom: 10px;
+    }
 
-.crossed-out {
-    text-decoration: line-through;
+    table {
+        width: 100%;
+    }
+    
+    tr.mat-footer-row {
+        font-weight: bold;
+    }
+    
+    .crossed-out {
+        text-decoration: line-through;
+    }
+    
+    .discounts {
+        margin-top: 15px;
+    
+        .mat-chip {
+            background-color: #3dff3d;
+        }
+    }
 }
 
 .empty-box {

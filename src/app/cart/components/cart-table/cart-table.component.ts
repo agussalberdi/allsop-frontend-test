@@ -15,8 +15,11 @@ export class CartTableComponent implements OnInit {
 
     discountDrinks = false;
     discountIngredients = false;
+    discountVoucher = false;
+
     discountDrinksMessage: string;
     discountIngredientsMessage: string;
+    discountVoucherMessage: string;
 
     constructor(private cartService: CartService) {}
 
@@ -40,6 +43,8 @@ export class CartTableComponent implements OnInit {
     applyVoucher(voucher: Event) {
         if (voucher) {
             this.total -= 20;
+            this.discountVoucher = true;
+            this.discountVoucherMessage = 'Promotional Code: 20£ off';
         }
     }
 
