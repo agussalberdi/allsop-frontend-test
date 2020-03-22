@@ -8,15 +8,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { VoucherComponent } from './components/voucher/voucher.component';
-import { FilterPipe } from '../shared/pipes/filter.pipe';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         FooterComponent,
         SearchComponent,
-        VoucherComponent,
-        FilterPipe
+        VoucherComponent
     ],
     imports: [
         CommonModule,
