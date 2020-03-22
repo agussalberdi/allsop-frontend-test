@@ -5,7 +5,7 @@
             <input matInput placeholder="Insert discount voucher" formControlName="code">
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
-        <button mat-stroked-button color="primary" [disabled]="codeAlreadyUsed">Apply</button>
+        <button mat-stroked-button color="primary">Apply</button>
     </form>
     <p *ngIf="discountError" class="error">Your code is invalid. Try again.</p>
     <p *ngIf="totalAmountError" class="error">You must spend 100 or more.</p>
