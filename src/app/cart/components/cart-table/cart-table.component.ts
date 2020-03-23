@@ -42,10 +42,12 @@ export class CartTableComponent implements OnInit, OnDestroy {
     }
 
     applyVoucher(voucher: Event) {
-        if (voucher) {
+        if (voucher && this.total >= 100) {
             this.total -= 20;
             this.discountVoucher = true;
             this.discountVoucherMessage = 'Promotional Code: 20£ off';
+        } else {
+            this.discountVoucher = false;
         }
     }
 
@@ -53,7 +55,7 @@ export class CartTableComponent implements OnInit, OnDestroy {
         const drinks = this.cart.filter(product => product.category === Category.Drinks);
 
         if (drinks.length >= 10) {
-            return drinks.reduce((total, product: Product) => {
+            return drinks.reduce((total = 0, product: Product) => {
                 this.discountDrinks = true;
                 this.discountDrinksMessage = 'Drinks 10% off';
                 if (product.reduced) {
@@ -67,7 +69,7 @@ export class CartTableComponent implements OnInit, OnDestroy {
     }
 
     getCookingAndBakingDiscounts() {
-        const ingredientsCheck = this.cart.reduce((total, product: Product) => {
+        const ingredientsCheck = this.cart.reduce((total = 0, product: Product) => {
             if (product && product.category === Category.Ingredients) {
                 if (product.reduced) {
                     return total + product.reduced;

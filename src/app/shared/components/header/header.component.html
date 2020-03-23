@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row fxLayoutAlign="space-between center">
       <span>Allsop Test</span>
-      <nav *ngIf="loggedIn">
+      <nav>
         <a routerLink="/products" routerLinkActive="active">Products</a>
       </nav>
-      <div *ngIf="loggedIn">
+      <div>
         <a routerLink="/cart" mat-icon-button color="basic" [matBadge]="total$ | async" matBadgePosition="after" matBadgeColor="warn">
           <mat-icon color="basic">shopping_cart</mat-icon>
         </a>
