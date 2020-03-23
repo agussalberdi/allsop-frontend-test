@@ -29,13 +29,9 @@ export class CartTableComponent implements OnInit {
     }
 
     removeProduct(product: Product, i: number) {
-        this.cartService.removeCart(product, i);
+        this.cartService.removeCart(i);
         this.productsService.increaseQuantity(product.name);
-        // this.getTotalAfterDiscounts();
-    }
-
-    clearCart() {
-        this.cartService.clearCart();
+        this.getTotalAfterDiscounts();
     }
 
     getCartTotal() {
@@ -63,6 +59,7 @@ export class CartTableComponent implements OnInit {
                 return total + (product.price * 0.1);
             }, 0);
         }
+        this.discountDrinks = false;
         return 0;
     }
 
@@ -81,6 +78,7 @@ export class CartTableComponent implements OnInit {
             this.discountIngredientsMessage = 'Baking/Cooking Ingredients 5£ off';
             return 5;
         }
+        this.discountIngredients = false;
         return 0;
     }
 

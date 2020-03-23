@@ -1,4 +1,3 @@
-import { OrderPipe } from './../shared/pipes/order.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
@@ -11,15 +10,13 @@ import { CartTableComponent } from './components/cart-table/cart-table.component
 @NgModule({
   declarations: [
     CartComponent,
-    CartTableComponent,
-    OrderPipe
+    CartTableComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     CartRoutingModule,
     SharedModule
-  ],
-  exports: [OrderPipe]
+  ]
 })
 export class CartModule { }
