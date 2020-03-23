@@ -5,10 +5,10 @@
     </mat-card-header>
     <img mat-card-image [src]="getCategoryImage()" alt="Product image">
     <mat-card-content>
-      <span [ngClass]="{'crossed-out': product.reduced}">{{ product.price | currency: 'GBP' }}</span>
-      <span *ngIf="product.reduced" class="reduced">{{ product.reduced | currency: 'GBP' }}</span>
+      <span class="price" [ngClass]="{'crossed-out': product.reduced}">{{ product.price | currency: 'GBP' }}</span>
+      <span *ngIf="product.reduced" class="price reduced">{{ product.reduced | currency: 'GBP' }}</span>
       <p>
-          Stock: {{ product.quantity }}
+          <strong>Stock:</strong> {{ product.quantity }}
       </p>
     </mat-card-content>
     <mat-card-actions>
