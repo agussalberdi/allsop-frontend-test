@@ -11,10 +11,12 @@ import { AuthService } from './../../../auth/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
     total$: Observable<number>;
+    isLoggedIn$: Observable<boolean>;
 
     constructor(private cartService: CartService, private authService: AuthService) {}
 
     ngOnInit() {
+        this.isLoggedIn$ = this.authService.loggedIn;
         this.total$ = this.cartService.cart$.pipe(
             map(products => products.length)
         );

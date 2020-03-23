@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -7,7 +8,8 @@ import { User } from 'firebase'
   providedIn: 'root'
 })
 export class AuthService {
-  user: User;
+  private user: User;
+  private isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   constructor(private af: AngularFireAuth, private router: Router) {
     this.af.authState.subscribe(user => {
@@ -22,22 +24,24 @@ export class AuthService {
 
   async register(email: string, password: string) {
     await this.af.createUserWithEmailAndPassword(email, password);
+    this.isLoggedIn$.next(true);
     this.router.navigate(['products']);
   }
 
   async login(email: string, password: string) {
     await this.af.signInWithEmailAndPassword(email, password);
+    this.isLoggedIn$.next(true);
     this.router.navigate(['products']);
   }
 
   async logout() {
     await this.af.signOut();
+    this.isLoggedIn$.next(false);
     localStorage.removeItem('user');
     this.router.navigate(['auth/login']);
   }
 
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null;
+  get loggedIn() {
+    return this.isLoggedIn$.asObservable();
   }
 }
