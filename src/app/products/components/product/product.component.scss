@@ -20,30 +20,4 @@
     .crossed-out {
         text-decoration: line-through;
     }
-
-    .actions {
-        border-radius: 10px;
-        background-color: #eee;
-
-        span {
-            font-size: 17px;
-        }
-
-        button {
-            color: white;
-            border-radius: 10px;
-
-            &.add {
-                background-color: #18e609;
-            }
-
-            &.remove {
-                background-color: red;
-            }
-
-            &[disabled] {
-                background-color: gray;
-            }
-        }
-    }
 }

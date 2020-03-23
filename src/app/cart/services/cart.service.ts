@@ -16,7 +16,7 @@ export class CartService {
         this.cart.next(this.products);
     }
 
-    removeCart(product: Product) {
+    removeCart(product: Product, i: number) {
         this.products = this.products.filter(elem => elem.name.toLowerCase() !== product.name.toLowerCase());
         this.cart.next(this.products);
     }

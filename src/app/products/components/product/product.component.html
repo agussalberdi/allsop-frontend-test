@@ -12,14 +12,6 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <div class="actions" fxLayoutAlign="space-between center">
-        <button mat-icon-button class="remove" (click)="removeCart()" [disabled]="requestedQuantity === 0">
-          <mat-icon>remove</mat-icon>
-        </button>
-        <span>{{ requestedQuantity }}</span>
-        <button mat-icon-button class="add" (click)="addCart()" [disabled]="product.quantity === 0">
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
+      <button mat-raised-button color="primary" (click)="addCart()" [disabled]="product.quantity === 0">Add</button>
     </mat-card-actions>
 </mat-card>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 import { Category } from 'src/app/shared/enums/category.enum';
 import { CartService } from '../../services/cart.service';
+import { ProductsService } from './../../../products/services/products.service';
 
 @Component({
     selector: 'app-cart-table',
@@ -21,15 +22,16 @@ export class CartTableComponent implements OnInit {
     discountIngredientsMessage: string;
     discountVoucherMessage: string;
 
-    constructor(private cartService: CartService) {}
+    constructor(private cartService: CartService, private productsService: ProductsService) {}
 
     ngOnInit() {
         this.getTotalAfterDiscounts();
     }
 
-    removeProduct(product: Product) {
-        this.cartService.removeCart(product);
-        this.getTotalAfterDiscounts();
+    removeProduct(product: Product, i: number) {
+        this.cartService.removeCart(product, i);
+        this.productsService.increaseQuantity(product.name);
+        // this.getTotalAfterDiscounts();
     }
 
     clearCart() {

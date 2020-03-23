@@ -11,7 +11,6 @@ import { Category } from 'src/app/shared/enums/category.enum';
 })
 export class ProductComponent implements OnInit {
     @Input() product: Product;
-    requestedQuantity = 0;
 
     constructor(private cartService: CartService, private productsService: ProductsService) {}
 
@@ -41,14 +40,7 @@ export class ProductComponent implements OnInit {
     }
 
     addCart() {
-        this.requestedQuantity += 1;
         this.cartService.addCart(this.product);
         this.productsService.reduceQuantity(this.product.name);
-    }
-
-    removeCart() {
-        this.requestedQuantity -= 1;
-        this.cartService.removeCart(this.product);
-        this.productsService.increaseQuantity(this.product.name);
     }
 }
