@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductsService } from 'src/app/products/services/products.service';
 import { Product } from '../../../shared/interfaces/product.interface';
 
@@ -7,9 +8,10 @@ import { Product } from '../../../shared/interfaces/product.interface';
     templateUrl: './products.component.html',
     styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
     products: Product[] = [];
     filteredProducts: Product[] = [];
+    subscription: Subscription;
 
     constructor(private productsService: ProductsService) {}
 
@@ -18,7 +20,7 @@ export class ProductsComponent implements OnInit {
     }
 
     fetchProducts() {
-        this.productsService.getProducts().subscribe(data => {
+        this.subscription = this.productsService.getProducts().subscribe(data => {
             this.products = data;
             this.filteredProducts = data;
         });
@@ -26,5 +28,9 @@ export class ProductsComponent implements OnInit {
 
     handleFilter(event: Product[]) {
         this.filteredProducts = event;
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 }

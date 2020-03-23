@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 import { Category } from 'src/app/shared/enums/category.enum';
 import { CartService } from '../../services/cart.service';
@@ -9,15 +10,16 @@ import { ProductsService } from './../../../products/services/products.service';
     templateUrl: './cart-table.component.html',
     styleUrls: ['./cart-table.component.scss']
 })
-export class CartTableComponent implements OnInit {
+export class CartTableComponent implements OnInit, OnDestroy {
     displayedColumns: string[] = ['item', 'cost', 'remove'];
-    @Input() cart: Product[];
+    cart: Product[];
+    subscription: Subscription;
+
     total: number;
 
     discountDrinks = false;
     discountIngredients = false;
     discountVoucher = false;
-
     discountDrinksMessage: string;
     discountIngredientsMessage: string;
     discountVoucherMessage: string;
@@ -25,6 +27,7 @@ export class CartTableComponent implements OnInit {
     constructor(private cartService: CartService, private productsService: ProductsService) {}
 
     ngOnInit() {
+        this.subscription = this.cartService.cart$.subscribe(cart => this.cart = cart);
         this.getTotalAfterDiscounts();
     }
 
@@ -87,5 +90,9 @@ export class CartTableComponent implements OnInit {
         const drinksOff = this.getDiscountDrinks();
         const ingredientsOff = this.getCookingAndBakingDiscounts();
         this.total = cartTotal - drinksOff - ingredientsOff;
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 }
