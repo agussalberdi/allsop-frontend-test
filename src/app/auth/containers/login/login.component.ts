@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
     form: FormGroup;
     hide = true;
+    errorPassword;
 
     constructor(private fb: FormBuilder, private authService: AuthService) { }
 
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
         const email = this.form.get('email').value;
         const password = this.form.get('password').value;
 
-        this.authService.login(email, password);
+        this.authService.login(email, password)
+            .catch(err => this.errorPassword = err);
     }
 
     get emailFormat() {

@@ -10,6 +10,10 @@
                 Invalid email format
             </div>
 
+            <div class="error" *ngIf="alreadyUsedError">
+                {{ alreadyUsedError.message }}
+            </div>
+
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
@@ -22,6 +26,10 @@
                 Password is required
             </div>
             
+            <div class="error" *ngIf="weakPasswordError">
+                {{ weakPasswordError.message }}
+            </div>
+
             <button mat-raised-button color="warn">Register</button>
             <a routerLink="/auth/login">Already have an account?</a>
         </div>
