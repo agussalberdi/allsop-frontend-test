@@ -8,8 +8,8 @@ import { CartService } from '../../../cart/services/cart.service';
     styleUrls: ['./voucher.component.scss']
 })
 export class VoucherComponent implements OnInit {
+    @Output() voucherEmitter: EventEmitter<boolean> = new EventEmitter();
     voucherForm: FormGroup;
-    @Output() voucherEmitted: EventEmitter<boolean> = new EventEmitter();
     voucherCode = '20OFFPROMO';
 
     total: number;
@@ -36,7 +36,7 @@ export class VoucherComponent implements OnInit {
 
     onSubmit() {
         if (this.voucherForm.valid && this.code === this.voucherCode && this.total >= 100) {
-            this.voucherEmitted.emit(true);
+            this.voucherEmitter.emit(true);
             this.voucherForm.reset();
             this.discountError = false;
             this.totalAmountError = false;

@@ -39,7 +39,7 @@
       <mat-chip *ngIf="discountIngredients">{{ discountIngredientsMessage }}</mat-chip>
     </mat-chip-list>
   
-    <app-voucher *ngIf="!discountVoucher" (voucherEmitted)="applyVoucher($event)"></app-voucher>
+    <app-voucher *ngIf="!discountVoucher" (voucherEmitter)="applyVoucher($event)"></app-voucher>
 </div>
   
 <ng-template #emptyCart>
