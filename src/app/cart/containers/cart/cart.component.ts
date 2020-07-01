@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/app/shared/interfaces/product.interface';
-import { Category } from 'src/app/shared/enums/category.enum';
+import { Product } from '@shared/interfaces/product.interface';
+import { Category } from '@shared/enums/category.enum';
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from './../../../products/services/products.service';
 
