@@ -87,7 +87,7 @@ export class CartComponent implements OnInit, OnDestroy {
         return 0;
     }
 
-    getTotalAfterDiscounts() {
+    private getTotalAfterDiscounts() {
         const cartTotal = this.getCartTotal();
         const drinksOff = this.getDiscountDrinks();
         const ingredientsOff = this.getCookingAndBakingDiscounts();

@@ -1,5 +1,5 @@
-import { ProductsService } from 'src/app/products/services/products.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { ProductsService } from 'src/app/products/services/products.service';
 import { CartService } from '../../../cart/services/cart.service';
 import { Product } from '../../../shared/interfaces/product.interface';
 import { Category } from 'src/app/shared/enums/category.enum';

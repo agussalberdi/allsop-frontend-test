@@ -17,4 +17,4 @@ import { CartComponent } from './containers/cart/cart.component';
     SharedModule
   ]
 })
-export class CartModule { }
+export class CartModule {}

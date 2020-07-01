@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
     form: FormGroup;
     hide = true;
-    errorPassword;
+    errorPassword: any;
 
     constructor(private fb: FormBuilder, private authService: AuthService) { }
 

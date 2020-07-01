@@ -10,8 +10,8 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent implements OnInit {
     form: FormGroup;
     hide = true;
-    alreadyUsedError;
-    weakPasswordError;
+    alreadyUsedError: any;
+    weakPasswordError: any;
 
     constructor(private fb: FormBuilder, private authService: AuthService) { }
 
